@@ -21,4 +21,8 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
+vim.opt.number = true
+
+vim.opt.cursorline = true
+
 require("lazy").setup("plugins")
