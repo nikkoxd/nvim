@@ -67,7 +67,7 @@ return {
         "rust_analyzer",
         "astro",
         "clangd",
-        "omnisharp",
+        "omnisharp_mono",
         "cmake",
         "cssls",
         "eslint",
