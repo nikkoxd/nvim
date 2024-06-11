@@ -25,5 +25,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.cursorline = true
+vim.opt.cmdheight = 0
 
 require("lazy").setup("plugins")
