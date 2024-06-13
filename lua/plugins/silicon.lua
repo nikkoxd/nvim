@@ -6,7 +6,7 @@ return {
   opts = {
     disable_defaults = true,
     font = "MesloLGS Nerd Font Mono",
-    theme = "gruvbox-dark",
+    theme = "OneHalfLight",
     background = nil,
     pad_horiz = 0,
     pad_vert = 0,
