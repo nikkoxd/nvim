@@ -27,4 +27,8 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cmdheight = 0
 
+vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,.meta,.DS_Store]]
+
 require("lazy").setup("plugins")
+
+vim.cmd("colorscheme kanagawa")
