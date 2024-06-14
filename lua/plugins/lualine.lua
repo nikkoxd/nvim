@@ -3,6 +3,7 @@ return {
 
   opts = {
     options = {
+      theme = "gruvbox",
       section_separators = "",
       component_separators = "",
     }
