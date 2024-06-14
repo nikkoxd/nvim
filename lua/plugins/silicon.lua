@@ -3,6 +3,9 @@ return {
   lazy = true,
   cmd = "Silicon",
   main = "nvim-silicon",
+  keys = {
+    { "<leader>s", ":Silicon<cr>", mode = "v" }
+  },
   opts = {
     disable_defaults = true,
     font = "MesloLGS Nerd Font Mono",
