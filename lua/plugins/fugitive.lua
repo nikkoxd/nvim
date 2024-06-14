@@ -31,6 +31,6 @@ return {
       end
     })
 
-    vim.keymap.set("n", "<leader>gd", function() vim.cmd(":Gdiffsplit") end)
+    vim.keymap.set("n", "<leader>gd", "<cmd>Gdiffsplit<CR>")
   end
 }
