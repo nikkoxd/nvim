@@ -6,6 +6,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-emoji",
     {
       "L3MON4D3/LuaSnip",
       version = "v2.*",
@@ -46,6 +47,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "emoji" },
       }),
 
       formatting = {
