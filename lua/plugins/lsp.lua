@@ -35,15 +35,9 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "rust_analyzer",
         "astro",
-        "clangd",
-        "omnisharp_mono",
-        "cmake",
-        "cssls",
         "eslint",
         "tsserver",
-        "markdown_oxide",
         "tailwindcss",
       },
 
