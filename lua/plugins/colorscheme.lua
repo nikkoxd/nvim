@@ -9,6 +9,7 @@ return {
     })
 
     vim.cmd("colorscheme mellifluous")
+    vim.opt.background = "dark"
     -- vim.opt.background = "light"
   end
 }
