@@ -14,10 +14,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local gdproject = io.open(vim.fn.getcwd()..'/project.godot', 'r')
+local gdproject = io.open(vim.fn.getcwd().."/project.godot", "r")
 if gdproject then
     io.close(gdproject)
-    vim.fn.serverstart './godothost'
+    vim.fn.serverstart "/tmp/godot.pipe"
 end
 
 vim.opt.tabstop = 2
