@@ -4,12 +4,12 @@ return {
   cmd = "Silicon",
   main = "nvim-silicon",
   keys = {
-    { "<leader>s", ":Silicon<cr>", mode = "v" }
+    { "<leader>s", ":Silicon<cr>", mode = "v", silent = true }
   },
   opts = {
     disable_defaults = true,
-    font = "MesloLGS Nerd Font Mono",
-    theme = "Coldark-Cold",
+    font = "GeistMono Nerd Font",
+    theme = "Visual Studio Dark+",
     background = nil,
     pad_horiz = 0,
     pad_vert = 0,
