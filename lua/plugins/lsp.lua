@@ -14,10 +14,10 @@ return {
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
         vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts)
+        vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
+        vim.keymap.set("n", "gI", require("telescope.builtin").lsp_implementations, opts)
+        vim.keymap.set("n", "gy", require("telescope.builtin").lsp_type_definitions, opts)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
@@ -26,6 +26,7 @@ return {
         vim.keymap.set("n", "<leader>cc", vim.lsp.codelens.run, opts)
         vim.keymap.set("n", "<leader>cC", vim.lsp.codelens.refresh, opts)
         vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, opts)
       end,
     })
 
@@ -65,5 +66,7 @@ return {
       name = "godot",
       cmd = vim.lsp.rpc.connect("127.0.0.1", "6005"),
     })
+
+    require("lspconfig")["gdshader_lsp"].setup({})
   end
 }
