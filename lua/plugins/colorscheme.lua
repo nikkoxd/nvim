@@ -1,15 +1,13 @@
 return {
-  "ramojus/mellifluous.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
 
   config = function()
-    require("mellifluous").setup({
-      transparent_background = {
-        enabled = true
-      },
+    require("catppuccin").setup({
+      flavour = "macchiato",
+      transparent_background = true,
     })
 
-    vim.cmd("colorscheme mellifluous")
-    vim.opt.background = "dark"
-    -- vim.opt.background = "light"
+    vim.cmd.colorscheme("catppuccin")
   end
 }
