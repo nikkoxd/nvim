@@ -3,24 +3,24 @@ return {
 
   build = ":TSUpdate",
 
-  config = function()
-    local configs = require("nvim-treesitter.configs")
+  keys = {
+    { "<leader>tr", function() require("telescope.builtin").treesitter() end, desc = "Treesitter" },
+  },
 
-    configs.setup({
-      ensure_installed = {
-        "gdscript",
-        "godot_resource",
-        "gdshader",
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-        "typescript",
-        "astro"
-      },
-      sync_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-    })
-  end
+  opts = {
+    ensure_installed = {
+      "gdscript",
+      "godot_resource",
+      "gdshader",
+      "lua",
+      "vim",
+      "vimdoc",
+      "query",
+      "typescript",
+      "astro"
+    },
+    sync_install = false,
+    highlight = { enable = true },
+    indent = { enable = true },
+  },
 }
