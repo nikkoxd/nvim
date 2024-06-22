@@ -25,24 +25,23 @@ return {
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
 
-  opts = {
-    adapters = {
-      godot = {
-        type = "server",
-        host = "127.0.0.1",
-        port = 6006,
-      }
-    },
-    configurations = {
-      gdscript = {
-        {
-          type = "godot",
-          request = "launch",
-          name = "Launch scene",
-          project = "${workspaceFolder}",
-          launch_scene = true,
-        },
-      }
+  config = function()
+    local dap = require("dap");
+
+    dap.adapters.godot = {
+      type = "server",
+      host = "127.0.0.1",
+      port = 6006,
     }
-  },
+
+    dap.configurations.gdscript = {
+      {
+        type = "godot",
+        request = "launch",
+        name = "Launch scene",
+        project = "${workspaceFolder}",
+        launch_scene = true,
+      },
+    }
+  end,
 }
