@@ -9,3 +9,5 @@ vim.opt.relativenumber = true
 
 vim.opt.cursorline = true
 vim.opt.cmdheight = 0
+
+vim.g.netrw_list_hide = [[.meta,.DS_Store]]
