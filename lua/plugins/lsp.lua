@@ -40,6 +40,8 @@ return {
         "eslint",
         "tsserver",
         "tailwindcss",
+        "markdownlint",
+        "markdown-toc"
       },
 
       handlers = {
