@@ -13,4 +13,4 @@ vim.opt.cmdheight = 0
 vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+,.meta,.DS_Store]]
 vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircmd = "cp -r"
-
+vim.g.netrw_liststyle = 3
