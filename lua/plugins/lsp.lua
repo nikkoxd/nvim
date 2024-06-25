@@ -40,8 +40,8 @@ return {
         "eslint",
         "tsserver",
         "tailwindcss",
-        "markdownlint",
-        "markdown-toc"
+        "marksman",
+        "pyright",
       },
 
       handlers = {
