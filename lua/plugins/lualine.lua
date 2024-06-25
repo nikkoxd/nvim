@@ -3,9 +3,13 @@ return {
 
   opts = {
     options = {
+      icons_enabled = false,
       theme = "catppuccin",
-      section_separators = "",
       component_separators = "",
-   }
+      section_separators = {
+        left = "",
+        right = ""
+      },
+    },
   }
 }
