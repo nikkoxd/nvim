@@ -10,4 +10,10 @@ return {
     { '<leader>ps', function() require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ') }) end, desc = 'Grep string' },
     { '<leader>vh', function() require('telescope.builtin').help_tags() end, desc = 'Help tags' },
   },
+
+  opts = {
+    defaults = {
+      path_display = { "smart" },
+    }
+  }
 }
