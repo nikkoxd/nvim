@@ -13,6 +13,9 @@ vim.opt.cmdheight = 0
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.g.netrw_list_hide = [[.DS_Store]]
 vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircmd = "cp -r"
