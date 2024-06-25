@@ -17,7 +17,8 @@ return {
       "vimdoc",
       "query",
       "typescript",
-      "astro"
+      "astro",
+      "python",
     },
     sync_install = false,
     highlight = { enable = true },
