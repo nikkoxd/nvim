@@ -1,13 +1,6 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "uZer/pywal16.nvim",
+  name = "pywal16",
 
-  config = function()
-    require("catppuccin").setup({
-      flavour = "macchiato",
-      transparent_background = true,
-    })
-
-    vim.cmd.colorscheme("catppuccin")
-  end
+  opts = {}
 }

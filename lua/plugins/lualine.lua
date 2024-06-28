@@ -4,7 +4,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = "catppuccin",
+      theme = "pywal",
       component_separators = "",
       section_separators = {
         left = "",
