@@ -3,7 +3,7 @@ return {
 
   opts = {
     options = {
-      theme = "pywal",
+      theme = "rose-pine",
       component_separators = "",
       section_separators = {
         left = "",
