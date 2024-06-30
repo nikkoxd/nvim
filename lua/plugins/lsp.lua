@@ -1,14 +1,15 @@
 return {
   "neovim/nvim-lspconfig",
-
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh7th/cmp-nvim-lsp",
+    "j-hui/fidget.nvim",
   },
 
   config = function()
     local cmp_nvim_lsp = require("cmp_nvim_lsp");
+    local capabilities = cmp_nvim_lsp.default_capabilities()
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -29,8 +30,7 @@ return {
       end,
     })
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
+    require("fidget").setup()
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
@@ -69,5 +69,16 @@ return {
     })
 
     require("lspconfig")["gdshader_lsp"].setup({})
+
+    vim.diagnostic.config({
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      }
+    })
   end
 }
