@@ -55,8 +55,7 @@ return {
         format = lspkind.cmp_format({
           mode = "symbol",
           maxwidth = 50,
-          ellipsis_char = "...",
-          symbol_map = { SuperMaven = "" },
+          symbol_map = { Supermaven = "" },
         }),
       },
     })
