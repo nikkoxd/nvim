@@ -1,14 +1,15 @@
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-
-vim.opt.number = true
-vim.opt.relativenumber = true
-
-vim.opt.cursorline = true
 local opt = vim.opt
+
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
+
+opt.number = true
+opt.relativenumber = true
+
+opt.cursorline = true
 
 opt.cmdheight = 0
 
@@ -17,7 +18,7 @@ opt.smartcase = true
 
 opt.splitright = true
 
-opt.foldcolumn = "1"
+opt.foldcolumn = "0"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
