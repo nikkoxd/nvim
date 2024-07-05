@@ -28,6 +28,13 @@ return {
       end,
     })
 
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+
     require("fidget").setup()
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -41,9 +48,12 @@ return {
         "pyright",
       },
 
+
       handlers = {
         function (server_name)
-          require("lspconfig")[server_name].setup {}
+          require("lspconfig")[server_name].setup {
+            capabilities = capabilities,
+          }
         end,
 
         ["lua_ls"] = function ()
