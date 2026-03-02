@@ -14,4 +14,10 @@ return {
       { "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
   },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    dependencies = { "saghen/blink.cmp" },
+  },
 }
