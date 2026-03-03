@@ -2,53 +2,56 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      vim.api.nvim_create_autocmd("lspattach", {
-        group = vim.api.nvim_create_augroup("userlspconfig", {}),
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           local opts = { buffer = ev.buf, silent = true }
-          opts.desc = "lsp info"
-          vim.keymap.set("n", "<leader>cl", "<cmd>lspinfo<cr>", opts)
-          opts.desc = "show definitions"
+          opts.desc = "LSP Info"
+          vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", opts)
+          opts.desc = "Show Definitions"
           vim.keymap.set("n", "gd", function()
-            snacks.picker.lsp_definitions()
+            Snacks.picker.lsp_definitions()
           end, opts)
-          opts.desc = "show references"
+          opts.desc = "Show References"
           vim.keymap.set("n", "gr", function()
-            snacks.picker.lsp_references()
+            Snacks.picker.lsp_references()
           end, opts)
-          opts.desc = "show implementations"
-          vim.keymap.set("n", "gi", function()
-            snacks.picker.lsp_implementations()
+          opts.desc = "Show Implementations"
+          vim.keymap.set("n", "gI", function()
+            Snacks.picker.lsp_implementations()
           end, opts)
-          opts.desc = "show type definitions"
+          opts.desc = "Show Type Definitions"
           vim.keymap.set("n", "gy", function()
-            snacks.picker.lsp_type_definitions()
+            Snacks.picker.lsp_type_definitions()
           end, opts)
-          opts.desc = "jump to declaration"
-          vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
-          opts.desc = "display hover information"
+          opts.desc = "Jump to declaration"
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+          opts.desc = "Display hover information"
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          opts.desc = "display signature inforamtion"
+          opts.desc = "Display signature inforamtion"
           vim.keymap.set("n", "<leader>gk", vim.lsp.buf.signature_help, opts)
-          opts.desc = "show code actions"
+          opts.desc = "Show code actions"
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-          opts.desc = "run code lens"
+          opts.desc = "Run code lens"
           vim.keymap.set("n", "<leader>cc", vim.lsp.codelens.run, opts)
-          opts.desc = "refresh code lens"
-          vim.keymap.set("n", "<leader>cc", vim.lsp.codelens.refresh, opts)
-          opts.desc = "rename"
+          opts.desc = "Refresh code lens"
+          vim.keymap.set("n", "<leader>cC", vim.lsp.codelens.refresh, opts)
+          opts.desc = "Rename"
           vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
-          opts.desc = "show diagnostics"
+          opts.desc = "Show diagnostics"
           vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, opts)
-          opts.desc = "format current file"
-          vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, opts)
+          opts.desc = "Format current file"
+          vim.keymap.set("n", "<leader>ff", function()
+            require("conform").format()
+          end, opts)
         end,
       })
 
       vim.lsp.enable({
         "lua_ls",
         "ts_ls",
-        "tailwindcss"
+        "tailwindcss",
+        "eslint"
       })
     end
   },
