@@ -56,9 +56,6 @@ else
   return {
     'RRethy/base16-nvim',
     priority = 1000,
-    config = function()
-      require('colorscheme/matugen').setup()
-      require('colorscheme/matugen').set_custom_hl_groups()
-    end,
+    lazy = false,
   }
 end

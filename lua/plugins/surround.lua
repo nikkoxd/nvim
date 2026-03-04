@@ -2,10 +2,8 @@ return {
   "kylechui/nvim-surround",
   version = "*",
   event = "VeryLazy",
-  opts = {
-    keymaps = {
-      visual = "<leader>s",
-      visual_line = "gS",
-    }
-  }
+  keys = {
+    { "<leader>s", "<Plug>(nvim-surround-visual)", mode = "x" },
+    { "gS", "<Plug>(nvim-surround-visual-line )", mode = "x" },
+  },
 }

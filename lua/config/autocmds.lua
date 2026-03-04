@@ -26,3 +26,12 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { desc = "Convert markdown to PDF" })
   end,
 })
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.schedule(function()
+      require("colorscheme.matugen").setup()
+      require("colorscheme.matugen").set_custom_hl_groups()
+    end)
+  end,
+})
