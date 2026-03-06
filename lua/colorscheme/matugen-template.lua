@@ -26,7 +26,7 @@ end
 
 function M.set_custom_hl_groups()
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 end
 
 -- Register a signal handler for SIGUSR1 (matugen updates)

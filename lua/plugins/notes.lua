@@ -19,5 +19,13 @@ return {
     lazy = false,
 
     dependencies = { "saghen/blink.cmp" },
+
+    opts = {
+      markdown = {
+        list_items = {
+          shift_width = 2,
+        },
+      },
+    },
   },
 }

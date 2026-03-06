@@ -57,7 +57,9 @@ return {
         "lua_ls",
         "ts_ls",
         "tailwindcss",
-        "eslint"
+        "eslint",
+        "fish_lsp",
+        "csharp_ls"
       })
     end
   },
