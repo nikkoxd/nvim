@@ -1,6 +1,10 @@
 return {
   {
-    'bullets-vim/bullets.vim'
+    'bullets-vim/bullets.vim',
+    lazy = false,
+    keys = {
+      { "<leader>x", "<Plug>(bullets-toggle-checkbox)", desc = "Bullets" },
+    }
   },
   {
     "HakonHarnes/img-clip.nvim",

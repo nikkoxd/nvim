@@ -27,13 +27,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-if vim.loop.os_uname().sysname == "Linux" then
-  vim.api.nvim_create_autocmd({ "VimEnter" }, {
-    callback = function()
-      vim.schedule(function()
-        require("colorscheme.matugen").setup()
-        require("colorscheme.matugen").set_custom_hl_groups()
-      end)
-    end,
-  })
-end
+-- if vim.loop.os_uname().sysname == "Linux" then
+--   vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--     callback = function()
+--       vim.schedule(function()
+--         require("colorscheme.matugen").setup()
+--         require("colorscheme.matugen").set_custom_hl_groups()
+--       end)
+--     end,
+--   })
+-- end

@@ -1,61 +1,9 @@
-if vim.fn.has('macunix') == 1 then
-  return {
-    "RedsXDD/neopywal.nvim",
-    name = "neopywal",
-    lazy = false,
-    priority = 1000,
-    keys = {
-      { "<leader>nc", "<cmd>NeopywalCompile<cr>", desc = "Recompile neopywal" },
-    },
-    config = function()
-      require('neopywal').setup({
-        transparent_background = true,
-        show_split_lines = false,
-        dim_inactive = false,
-        show_end_of_buffer = true,
-        custom_highlights = function(C)
-          return {
-            all = {
-              StatusLine = { bg = C.none },
-
-              lualine_lsp = { bg = C.none, fg = C.color8 },
-              lualine_icon_branch = { bg = C.none, fg = C.color3 },
-
-              NormalFloat = { bg = C.background },
-              FloatBorder = { bg = C.background, fg = C.foreground },
-              FloatTitle = { bg = C.background, fg = C.color4 },
-
-              MiniFilesTitle = { bg = C.background, fg = C.color8 },
-              MiniFilesBorderModified = { bg = C.background, fg = C.color3 },
-
-              WhichKey = { bg = C.background },
-
-              EndOfBuffer = { fg = C.background },
-              ColorColumn = { bg = C.background },
-
-              Pmenu = { bg = C.background },
-              PmenuSel = { bg = C.color4, fg = C.color0 },
-
-              CmpItemAbbrDeprecated = { fg = C.color7, strikethrough = true },
-              CmpItemMenu = { fg = C.color7, italic = true },
-            }
-          }
-        end,
-        default_plugins = false,
-        plugins = {
-          gitsigns = true,
-          harpoon = true,
-          trouble = true,
-        },
-      })
-
-      vim.cmd [[colorscheme neopywal]]
-    end
-  }
-else
-  return {
-    'RRethy/base16-nvim',
-    priority = 1000,
-    lazy = false,
-  }
-end
+return {
+	"RRethy/base16-nvim",
+	priority = 9999,
+	lazy = false,
+	config = function()
+		require("colorscheme.matugen").setup()
+		require("colorscheme.matugen").set_custom_hl_groups()
+	end,
+}

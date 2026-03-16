@@ -27,6 +27,11 @@ end
 function M.set_custom_hl_groups()
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
+  vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+  vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+  vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+  vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
 end
 
 -- Register a signal handler for SIGUSR1 (matugen updates)
@@ -37,6 +42,11 @@ signal:start(
     package.loaded['colorscheme.matugen'] = nil
     require('colorscheme.matugen').setup()
     require('colorscheme.matugen').set_custom_hl_groups()
+
+    local ok, lualine = pcall(require, "lualine")
+    if ok then
+      lualine.setup(require("lazy.core.config").plugins["lualine.nvim"].opts)
+    end
   end)
 )
 
