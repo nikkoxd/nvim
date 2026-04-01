@@ -15,6 +15,17 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Move to down pane" })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Move to up pane" })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Move to right pane" })
 
+vim.keymap.set('n', '<leader>qj', '<cmd>cnext<cr>')
+vim.keymap.set('n', '<leader>qk', '<cmd>cprev<cr>')
+
+vim.keymap.set('n', '<leader>st', function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 10)
+  vim.cmd.startinsert()
+end)
+
 vim.cmd("ca W w")
 vim.cmd("ca Q q")
 vim.cmd("ca ц w")
