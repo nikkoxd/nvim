@@ -87,7 +87,7 @@ return {
 			completion = { documentation = { auto_show = true } },
 			snippets = { preset = "luasnip" },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "nerdfont" },
+				default = { "lsp", "path", "snippets", "buffer" },
 				providers = {
 					nerdfont = {
 						module = "blink-nerdfont",
@@ -110,5 +110,121 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
+	},
+
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
+			"mason-org/mason.nvim",
+			"jay-babu/mason-nvim-dap.nvim",
+		},
+		keys = {
+			{
+				"<leader>dd",
+				function()
+					require("dapui").toggle()
+				end,
+			},
+			{
+				"<leader>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				desc = "Toggle Breakpoint",
+			},
+			{
+				"<leader>dc",
+				function()
+					require("dap").continue()
+				end,
+				desc = "Continue",
+			},
+			{
+				"<leader>dC",
+				function()
+					require("dap").run_to_cursor()
+				end,
+				desc = "Run to Cursor",
+			},
+			{
+				"<leader>dT",
+				function()
+					require("dap").terminate()
+				end,
+				desc = "Terminate",
+			},
+		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			dapui.setup()
+
+			require("mason-nvim-dap").setup({
+				handlers = {
+					function(config)
+						require("mason-nvim-dap").default_setup(config)
+					end,
+				},
+			})
+
+			dap.adapters.netcoredbg = {
+				type = "executable",
+				command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+
+			dap.listeners.before.attach.dapui_config = function()
+				dapui.open()
+			end
+			dap.listeners.before.launch.dapui_config = function()
+				dapui.open()
+			end
+			dap.listeners.after.event_initialized.dapui_config = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated.dapui_config = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited.dapui_config = function()
+				dapui.close()
+			end
+		end,
+	},
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"Issafalcon/neotest-dotnet",
+		},
+		keys = {
+			{ "<leader>tr", "<cmd>Neotest run<cr>" },
+			{ "<leader>to", "<cmd>Neotest output<cr>" },
+			{ "<leader>ts", "<cmd>Neotest summary<cr>" },
+			{
+				"<leader>td",
+				function()
+					require("neotest").run.run({ strategy = "dap" })
+				end,
+			},
+			{
+				"<leader>ta",
+				function()
+					require("neotest").run.run({ suite = true })
+				end,
+			},
+		},
+		config = function()
+			require("neotest").setup({
+				adapters = {
+					require("neotest-dotnet"),
+				},
+			})
+		end,
 	},
 }
