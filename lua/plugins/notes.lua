@@ -10,8 +10,7 @@ return {
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
     opts = {
-      -- add options here
-      -- or leave it empty to use the default settings
+      relative_to_current_file = true,
     },
     keys = {
       -- suggested keymap
