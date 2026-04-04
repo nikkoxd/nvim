@@ -75,7 +75,6 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"l3mon4d3/LuaSnip",
-			"MahanRahmati/blink-nerdfont.nvim",
 		},
 
 		version = "1.*",
@@ -88,17 +87,7 @@ return {
 			snippets = { preset = "luasnip" },
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
-				providers = {
-					nerdfont = {
-						module = "blink-nerdfont",
-						name = "Nerd Fonts",
-						score_offset = 15, -- Tune by preference
-						opts = {
-							insert = true, -- Insert nerdfont icon (default) or complete its name
-							trigger = ":", -- Customize the trigger. Defaults to ":"
-						},
-					},
-				},
+				providers = {},
 			},
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			signature = { enabled = true },
@@ -110,6 +99,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter").setup()
+    end,
 	},
 
 	{
@@ -195,12 +187,14 @@ return {
 
 	{
 		"nvim-neotest/neotest",
+    lazy = false,
 		dependencies = {
 			"nvim-neotest/nvim-nio",
+      "nvim-treesitter/nvim-treesitter",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
 			"Issafalcon/neotest-dotnet",
+      "nsidorenco/neotest-vstest"
 		},
 		keys = {
 			{ "<leader>tr", "<cmd>Neotest run<cr>" },
@@ -222,7 +216,7 @@ return {
 		config = function()
 			require("neotest").setup({
 				adapters = {
-					require("neotest-dotnet"),
+					require("neotest-vstest"),
 				},
 			})
 		end,
